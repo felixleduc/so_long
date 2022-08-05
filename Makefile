@@ -6,7 +6,7 @@
 #    By: fleduc <fleduc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/25 03:34:15 by fleduc            #+#    #+#              #
-#    Updated: 2022/06/30 11:24:24 by fleduc           ###   ########.fr        #
+#    Updated: 2022/08/05 13:37:16 by fleduc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 RM = rm -rf
 
-SRCS = so_long.c check_map.c make_map.c setter.c change_map.c place_ground.c
+SRCS = so_long.c check_map.c make_map.c setter.c change_map.c place_ground.c place_wall.c check_file.c setter2.c \
+		player_enemy_pos.c enemy_move.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -29,11 +30,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(MAKE) -C libft
-	$(CC) -lmlx libft/libft.a $(FRAME) $(OBJS) -o $(NAME)
-	@echo "███████████████████████████████████▀█"
-	@echo "█─▄▄▄▄█─▄▄─█▄─▄███─▄▄─█▄─▀█▄─▄█─▄▄▄▄█"
-	@echo "█▄▄▄▄─█─██─██─██▀█─██─██─█▄▀─██─██▄─█"
-	@echo "▀▄▄▄▄▄▀▄▄▄▄▀▄▄▄▄▄▀▄▄▄▄▀▄▄▄▀▀▄▄▀▄▄▄▄▄▀"
+	@$(CC) -lmlx libft/libft.a $(FRAME) $(OBJS) -o $(NAME)
 
 clean:
 	@$(MAKE) -C libft clean

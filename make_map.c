@@ -6,18 +6,18 @@
 /*   By: fleduc <fleduc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:29:31 by fleduc            #+#    #+#             */
-/*   Updated: 2022/06/30 11:24:41 by fleduc           ###   ########.fr       */
+/*   Updated: 2022/08/05 12:18:05 by fleduc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	make_map(t_vars *vars, char **map_arg)
+void	make_map(t_vars *vars, char *map_arg[])
 {
 	char	*line;
-	int		fd;
 	int		i;
 	int		j;
+	int		fd;
 
 	check_size_map(vars, map_arg);
 	vars->map.map = (char **)ft_calloc(vars->map.height + 1, sizeof(char *));
@@ -45,6 +45,7 @@ void	check_size_map(t_vars *vars, char **map_arg)
 	char	*line;
 	int		fd;
 
+	empty_file(map_arg);
 	fd = open(map_arg[1], O_RDONLY);
 	line = get_next_line(fd);
 	while (line)
@@ -90,10 +91,10 @@ void	exitter(t_vars *vars)
 		{
 			if (vars->nb_collect == 0 && vars->map.map[i][j] == 'E')
 			{
+				check_ground(vars, i, j);
 				mlx_put_image_to_window
-					(vars->mlx, vars->win, vars->ground, j * 64, i * 64);
-				mlx_put_image_to_window
-					(vars->mlx, vars->win, vars->exit_unlocked, j * 64, i * 64);
+					(vars->mlx, vars->win,
+					vars->e_unlocked[vars->frame_e], j * 64, i * 64);
 			}
 		}
 	}
@@ -102,22 +103,27 @@ void	exitter(t_vars *vars)
 void	check_elements(t_vars *vars, int i, int j)
 {
 	if (vars->map.map[i][j] == '1')
-		mlx_put_image_to_window
-			(vars->mlx, vars->win, vars->obstacle, j * 64, i * 64);
+	{
+		if (i == 0 || i == vars->map.height - 1)
+			mlx_put_image_to_window
+					(vars->mlx, vars->win, vars->o, j * 64, i * 64);
+		else if (j == 0 || j == vars->map.length - 1)
+			mlx_put_image_to_window
+					(vars->mlx, vars->win, vars->o, j * 64, i * 64);
+		else
+			place_wall(vars, i, j);
+	}
 	else if (vars->map.map[i][j] == 'P')
 	{
 		vars->x = i * 64;
 		vars->y = j * 64;
-		mlx_put_image_to_window
-			(vars->mlx, vars->win, vars->player, j * 64, i * 64);
+		player_pos(vars, i, j);
 	}
 	else if (vars->map.map[i][j] == 'C')
 	{
 		vars->nb_collect += 1;
-		mlx_put_image_to_window
-			(vars->mlx, vars->win, vars->collectible, j * 64, i * 64);
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->c, j * 64, i * 64);
 	}
-	else if (vars->map.map[i][j] == 'E')
-		mlx_put_image_to_window
-			(vars->mlx, vars->win, vars->exit, j * 64, i * 64);
+	else
+		check_elements2(vars, i, j);
 }
