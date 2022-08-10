@@ -6,7 +6,7 @@
 /*   By: fleduc <fleduc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 04:05:33 by fleduc            #+#    #+#             */
-/*   Updated: 2022/08/10 11:08:20 by fleduc           ###   ########.fr       */
+/*   Updated: 2022/08/10 15:37:46 by fleduc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,5 +144,8 @@ void	enemy_move4(t_vars *vars, int random);
 void	set_walls(t_vars *vars, int i);
 void	empty_file(char *map_arg[]);
 void	bad_file(char *map_arg[]);
+void	directory_only(char *map_arg[]);
+void	file_not_exit(char *arg);
+void	rectangle_map(t_vars *vars);
 
 #endif

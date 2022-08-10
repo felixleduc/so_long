@@ -6,7 +6,7 @@
 /*   By: fleduc <fleduc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 03:49:12 by fleduc            #+#    #+#             */
-/*   Updated: 2022/08/10 11:13:16 by fleduc           ###   ########.fr       */
+/*   Updated: 2022/08/10 14:44:58 by fleduc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		write(1, "Missing a map argument\n", 23);
+		write(1, "Usage: ./so_long <arg>\n", 23);
 		return (0);
 	}
 	vars.mlx = mlx_init();

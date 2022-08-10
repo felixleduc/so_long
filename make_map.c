@@ -6,7 +6,7 @@
 /*   By: fleduc <fleduc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:29:31 by fleduc            #+#    #+#             */
-/*   Updated: 2022/08/10 11:11:30 by fleduc           ###   ########.fr       */
+/*   Updated: 2022/08/10 15:27:55 by fleduc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	check_size_map(t_vars *vars, char **map_arg)
 	int		fd;
 
 	empty_file(map_arg);
+	directory_only(map_arg);
 	fd = open(map_arg[1], O_RDONLY);
 	line = get_next_line(fd);
 	while (line)
