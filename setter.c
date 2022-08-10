@@ -6,7 +6,7 @@
 /*   By: fleduc <fleduc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 13:32:40 by fleduc            #+#    #+#             */
-/*   Updated: 2022/08/05 10:27:30 by fleduc           ###   ########.fr       */
+/*   Updated: 2022/08/10 11:03:57 by fleduc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	set_sprites(t_vars *vars)
 		(vars->mlx, "assets/ground.xpm", &i, &i);
 	vars->o = mlx_xpm_file_to_image
 		(vars->mlx, "assets/obstacle.xpm", &i, &i);
-	vars->c = mlx_xpm_file_to_image
+	vars->c[0] = mlx_xpm_file_to_image
 		(vars->mlx, "assets/collectible.xpm", &i, &i);
 	vars->e[0] = mlx_xpm_file_to_image
 		(vars->mlx, "assets/exit.xpm", &i, &i);

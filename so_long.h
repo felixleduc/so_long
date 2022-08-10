@@ -6,7 +6,7 @@
 /*   By: fleduc <fleduc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 04:05:33 by fleduc            #+#    #+#             */
-/*   Updated: 2022/08/05 14:17:55 by fleduc           ###   ########.fr       */
+/*   Updated: 2022/08/10 11:08:20 by fleduc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
-# include <stdio.h> //a supprimer
 # include "libft/libft.h"
 
 typedef struct s_map
@@ -84,7 +83,7 @@ typedef struct s_vars
 	void		*en_r;
 	void		*g;
 	void		*o;
-	void		*c;
+	void		*c[4];
 	void		*e[3];
 	void		*e_unlocked[3];
 	char		**file;
@@ -98,6 +97,7 @@ typedef struct s_vars
 	int			nb_collect;
 	int			frame;
 	int			frame_e;
+	int			frame_c;
 	int			last;
 	t_map		map;
 	t_walls		*walls;
@@ -111,6 +111,7 @@ void	place_ground(t_vars *vars);
 void	set_window(t_vars *vars);
 void	set_sprites(t_vars *vars);
 void	set_anims(t_vars *vars, int i);
+void	set_anims2(t_vars *vars, int i);
 void	place_sprites(t_vars *vars);
 void	check_elements(t_vars *vars, int i, int j);
 void	check_elements2(t_vars *vars, int i, int j);

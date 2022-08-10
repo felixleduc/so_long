@@ -6,7 +6,7 @@
 /*   By: fleduc <fleduc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 03:49:12 by fleduc            #+#    #+#             */
-/*   Updated: 2022/08/05 14:30:58 by fleduc           ###   ########.fr       */
+/*   Updated: 2022/08/10 11:13:16 by fleduc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,18 @@ int	loop_hook(t_vars *vars)
 	vars->frame += 1;
 	if (vars->frame % 101 == 0)
 		vars->last += 1;
-	if (vars->frame % 201)
+	if (vars->frame % 201 == 0)
 		vars->last -= 1;
 	if (vars->frame % 2000 == 0)
 	{
 		vars->frame_e += 1;
+		vars->frame_c += 1;
 		if (vars->frame_e > 2)
 			vars->frame_e = 0;
+		if (vars->frame_c > 3)
+			vars->frame_c = 0;
 		set_window(vars);
-	}
+	}		
 	if (vars->frame % 7501 == 0 && vars->n == 1)
 	{
 		enemy_move(vars);
@@ -61,6 +64,7 @@ void	init(t_vars *vars)
 	vars->map.moves = 0;
 	vars->frame = 0;
 	vars->frame_e = 0;
+	vars->frame_c = 0;
 	vars->last = 0;
 	vars->p_pos = '0';
 	vars->en_pos = '0';

@@ -6,7 +6,7 @@
 /*   By: fleduc <fleduc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:29:31 by fleduc            #+#    #+#             */
-/*   Updated: 2022/08/05 12:18:05 by fleduc           ###   ########.fr       */
+/*   Updated: 2022/08/10 11:11:30 by fleduc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,8 @@ void	check_elements(t_vars *vars, int i, int j)
 	else if (vars->map.map[i][j] == 'C')
 	{
 		vars->nb_collect += 1;
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->c, j * 64, i * 64);
+		mlx_put_image_to_window
+		(vars->mlx, vars->win, vars->c[vars->frame_c], j * 64, i * 64);
 	}
 	else
 		check_elements2(vars, i, j);

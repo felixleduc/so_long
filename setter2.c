@@ -6,7 +6,7 @@
 /*   By: fleduc <fleduc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 10:24:23 by fleduc            #+#    #+#             */
-/*   Updated: 2022/08/05 11:13:07 by fleduc           ###   ########.fr       */
+/*   Updated: 2022/08/10 11:15:46 by fleduc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,15 @@ void	set_anims(t_vars *vars, int i)
 		(vars->mlx, "assets/enemy_l.xpm", &i, &i);
 	vars->en_r = mlx_xpm_file_to_image
 		(vars->mlx, "assets/enemy_r.xpm", &i, &i);
+	set_anims2(vars, i);
+}
+
+void	set_anims2(t_vars *vars, int i)
+{
+	vars->c[1] = mlx_xpm_file_to_image
+		(vars->mlx, "assets/collectible_l.xpm", &i, &i);
+	vars->c[2] = mlx_xpm_file_to_image
+		(vars->mlx, "assets/collectible_c.xpm", &i, &i);
+	vars->c[3] = mlx_xpm_file_to_image
+		(vars->mlx, "assets/collectible_r.xpm", &i, &i);
 }
