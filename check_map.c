@@ -6,7 +6,7 @@
 /*   By: fleduc <fleduc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:27:24 by fleduc            #+#    #+#             */
-/*   Updated: 2022/08/10 15:46:41 by fleduc           ###   ########.fr       */
+/*   Updated: 2022/08/22 10:59:05 by fleduc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ void	check_map3(t_vars *vars, int i, int j)
 		vars->map.check_e = 1;
 	else if (vars->map.map[i][j] == 'P')
 		vars->map.check_p += 1;
-	//if (vars->map.map[i][j] == 'P' && vars->map.check_p > 1)
-	//	vars->map.map[i][j] = '0';
 }
 
 void	check_map2(t_vars *vars)

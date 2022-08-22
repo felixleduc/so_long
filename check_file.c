@@ -6,7 +6,7 @@
 /*   By: fleduc <fleduc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 15:45:59 by fleduc            #+#    #+#             */
-/*   Updated: 2022/08/10 15:40:23 by fleduc           ###   ########.fr       */
+/*   Updated: 2022/08/22 10:58:27 by fleduc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	file_not_exist(char *arg)
 	{
 		write(2, "Error\n", 6);
 		write(2, "Not an existing file\n", 21);
-		exit(1);	
+		exit(1);
 	}
 }
 
